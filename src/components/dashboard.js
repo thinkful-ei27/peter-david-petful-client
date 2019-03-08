@@ -7,6 +7,10 @@ class Dashboard extends Component {
     console.log(props.catToAdopt)
 
   }
+
+  handleDogAdopt() {
+
+  }
   
 
   render() {
@@ -18,6 +22,7 @@ class Dashboard extends Component {
     );
   }
 }
+
 
 
 

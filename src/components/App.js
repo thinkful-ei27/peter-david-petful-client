@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {connect} from 'react-redux'
 import Dashboard from './dashboard';
 
 const catToAdopt = {
@@ -25,13 +26,14 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Dashboard catToAdopt={catToAdopt} dogToAdopt={dogToAdopt} />
+        <Dashboard catToAdopt={this.state.catToAdopt} dogToAdopt={this.state.dogToAdopt} />
       </div>
     );
   }
 }
 
-//Create card compoenent
-//has a picture, name, gender, Age, Breed, ${name}'s Story, Adopt(Delete)Button
-
-export default App;
+const mapStateToProps = state => ({
+  catToAdopt: state.index.cat,
+  dogToAdopt: state.index.dog,
+});
+export default (connect(mapStateToProps)(App))
