@@ -1,5 +1,5 @@
-import dogReducer from './dog'
-import catReducer from './cat'
+import {dogReducer} from './dog'
+import {catReducer} from './cat'
 import { combineReducers } from 'redux';
 
-export default combineReducers({dogReducer, catReducer})
+export const reducers = combineReducers({dogReducer, catReducer});
