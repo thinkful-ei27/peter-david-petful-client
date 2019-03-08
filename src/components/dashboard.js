@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import Pet from './Pet';
 import {connect} from 'react-redux';
 import { adoptDog, adoptCat, fetchCat, fetchDog } from '../actions/index';
-class Dashboard extends Component {
+import '../styles/dashboard.css';
 
+class Dashboard extends Component {
   constructor(props) {
     super(props);
     console.log(props.catToAdopt)
@@ -33,9 +34,9 @@ class Dashboard extends Component {
 
   render() {
     return (
-      <div>
-        <Pet petToAdopt={this.props.catToAdopt} onAdoptPet={() => this.handleCatAdopt()}/>
-        <Pet petToAdopt={this.props.dogToAdopt} onAdoptPet={() => this.handleDogAdopt()}/>
+      <div className="dashboard">
+        <Pet animal="cat" petToAdopt={this.props.catToAdopt} onAdoptPet={() => this.handleCatAdopt()}/>
+        <Pet animal="dog" petToAdopt={this.props.dogToAdopt} onAdoptPet={() => this.handleDogAdopt()}/>
       </div>
     );
   }

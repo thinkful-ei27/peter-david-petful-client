@@ -1,13 +1,14 @@
 import React from 'react';
+import '../styles/pet.css';
 
 function Pet(props) {
   return (
-    <section>
+    <section className="pet-card">
       <header>
-        <h1>{props.animal}</h1>
-        <img src={props.petToAdopt.imageURL} alt="cat" />
+        <h1>{`${props.petToAdopt.name} the ${props.animal}`}</h1>
+        <img  className="pet-img" src={props.petToAdopt.imageURL} alt="cat" />
       </header>
-      <main>
+      <main className="pet-content">
         <dl>
           <dt>Name:</dt>
           <dd>{props.petToAdopt.name}</dd>
@@ -20,7 +21,7 @@ function Pet(props) {
           <dt>Fluffy's Story:</dt>
           <dd>{props.petToAdopt.story}</dd>
         </dl>
-        <button onClick={ () => props.onAdoptPet()}>Adopt</button>
+        <button className="adopt-btn" onClick={ () => props.onAdoptPet()}>Adopt</button>
       </main>
     </section>
   )

@@ -1,0 +1,29 @@
+.pet-card {
+  margin: 0 40px;
+  max-height: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.pet-img {
+  max-width: 300px;
+  max-height: 250px;
+}
+
+dt {
+  font-weight: 600;
+}
+
+dd{
+  margin: 0 0 10px 0;
+}
+
+.adopt-btn {
+  height: 25px;
+  width: 290px;
+  border-radius: 5px;
+  background-color: powderblue;
+  font-size: 18px;
+}
+
