@@ -20,10 +20,11 @@ dd{
 }
 
 .adopt-btn {
-  height: 25px;
+  height: 40px;
   width: 290px;
   border-radius: 5px;
-  background-color: powderblue;
+  background-color: rgb(64, 113, 187);
   font-size: 18px;
+  color: rgb(245, 245, 245);
 }
 
