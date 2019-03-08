@@ -29,7 +29,8 @@ export const fetchCat = () => (dispatch) => {
       method: 'GET',
     })
     .then((res) => res.json())
-    .then ( res => {
+    .then (res => {
+      
       dispatch(fetchCatSuccess(res))
     })
     .catch(err => {
@@ -45,7 +46,7 @@ export const adoptCat = () => (dispatch) => {
       method: 'DELETE',
     })
     .then((res) => res.json())
-    .then ( res => {
+    .then (res => {
       dispatch(adoptCatSuccess(res))
       dispatch(fetchCat())
     })

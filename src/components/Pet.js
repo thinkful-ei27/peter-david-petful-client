@@ -20,7 +20,7 @@ function Pet(props) {
           <dt>Fluffy's Story:</dt>
           <dd>{props.petToAdopt.story}</dd>
         </dl>
-        <button onClick={ (e) => props.onAdoptPet(e)}>Adopt</button>
+        <button onClick={ () => props.onAdoptPet()}>Adopt</button>
       </main>
     </section>
   )
