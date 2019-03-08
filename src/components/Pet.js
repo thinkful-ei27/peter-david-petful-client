@@ -18,7 +18,7 @@ function Pet(props) {
           <dd>{props.petToAdopt.age}</dd>
           <dt>Breed:</dt>
           <dd>{props.petToAdopt.breed}</dd>
-          <dt>Fluffy's Story:</dt>
+          <dt>{props.petToAdopt.name}'s Story:</dt>
           <dd>{props.petToAdopt.story}</dd>
         </dl>
         <button className="adopt-btn" onClick={ () => props.onAdoptPet()}>Adopt</button>
