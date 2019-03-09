@@ -24,7 +24,7 @@ export const catReducer = (state = initialState, action) => {
     return {
       ...state,
       loading: false,
-      cat: action.cat.data
+      cat: action.cat
     }
   } else if (action.type === FETCH_CAT_ERROR) {
     return {

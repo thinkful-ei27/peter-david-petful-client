@@ -47,6 +47,7 @@ export const adoptCat = () => (dispatch) => {
     })
     .then((res) => res.json())
     .then (res => {
+      console.log("Catresponse is: ", res)
       dispatch(adoptCatSuccess(res))
       dispatch(fetchCat())
     })

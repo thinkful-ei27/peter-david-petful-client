@@ -25,7 +25,7 @@ export const fetchDogRequest= () => ({
 export const fetchDog = () => (dispatch) => {
   dispatch(fetchDogRequest())
   return(
-    fetch('https://petful-backend.herokuapp.com/api/dogs', {
+    fetch('http://petful-backend.herokuapp.com/api/dogs', {
       method: 'GET',
       headers: {
         'content-Type': 'application/json'
@@ -45,7 +45,7 @@ export const fetchDog = () => (dispatch) => {
 export const adoptDog = () => (dispatch) => {
   dispatch(fetchDogRequest())
   return(
-    fetch('https://petful-backend.herokuapp.com/api/dogs', {
+    fetch('http://petful-backend.herokuapp.com/api/dogs', {
       method: 'DELETE',
       headers: {
         'content-Type': 'application/json'
@@ -53,6 +53,7 @@ export const adoptDog = () => (dispatch) => {
     })
     .then((res) => res.json())
     .then ( res => {
+      console.log("Dog response is: ", res)
       dispatch(adoptDogSuccess(res))
     })
     .catch(err => {

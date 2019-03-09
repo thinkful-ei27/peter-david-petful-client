@@ -43,8 +43,8 @@ class Dashboard extends Component {
 }
 
 const mapStateToProps = state => ({
-  catToAdopt: state.catReducer.cat.data,
-  dogToAdopt: state.dogReducer.dog.data
+  catToAdopt: state.catReducer.cat,
+  dogToAdopt: state.dogReducer.dog
 });
 export default (connect(mapStateToProps)(Dashboard))
 
