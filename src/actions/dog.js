@@ -1,4 +1,4 @@
-import { API_BASE_URL } from '../config'
+import { API_BASE_URL } from '../config';
 
 export const FETCH_DOG_SUCCESS = 'FETCH_DOG_SUCCESS';
 export const fetchDogSuccess = (dog) => ({
@@ -26,7 +26,7 @@ export const fetchDogRequest= () => ({
 export const fetchDog = () => (dispatch) => {
   dispatch(fetchDogRequest())
   return(
-    fetch(`${API_BASE_URL}/api/dogs`, {
+    fetch(`${API_BASE_URL}api/dogs`, {
       method: 'GET',
       headers: {
         'content-Type': 'application/json'
@@ -46,7 +46,7 @@ export const fetchDog = () => (dispatch) => {
 export const adoptDog = () => (dispatch) => {
   dispatch(fetchDogRequest())
   return(
-    fetch(`${API_BASE_URL}/api/dogs`, {
+    fetch(`${API_BASE_URL}api/dogs`, {
       method: 'DELETE',
       headers: {
         'content-Type': 'application/json'

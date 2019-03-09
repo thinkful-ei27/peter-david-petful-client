@@ -1,3 +1,5 @@
+import { API_BASE_URL } from '../config';
+
 
 export const FETCH_CAT_SUCCESS = 'FETCH_CAT_SUCCESS';
 export const fetchCatSuccess = (cat) => ({
@@ -25,7 +27,7 @@ export const fetchCatRequest= () => ({
 export const fetchCat = () => (dispatch) => {
   dispatch(fetchCatRequest())
   return(
-    fetch('https://petful-backend.herokuapp.com/api/cats', {
+    fetch(`${API_BASE_URL}api/cats`, {
       method: 'GET',
     })
     .then((res) => res.json())
@@ -42,7 +44,7 @@ export const fetchCat = () => (dispatch) => {
 export const adoptCat = () => (dispatch) => {
   dispatch(fetchCatRequest())
   return(
-    fetch('https://petful-backend.herokuapp.com/api/cats', {
+    fetch(`${API_BASE_URL}api/cats`, {
       method: 'DELETE',
     })
     .then((res) => res.json())
