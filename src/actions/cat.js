@@ -32,7 +32,6 @@ export const fetchCat = () => (dispatch) => {
     })
     .then((res) => res.json())
     .then (res => {
-      
       dispatch(fetchCatSuccess(res))
     })
     .catch(err => {
@@ -50,8 +49,10 @@ export const adoptCat = () => (dispatch) => {
     .then((res) => res.json())
     .then (res => {
       console.log("Catresponse is: ", res)
-      dispatch(adoptCatSuccess(res))
-      dispatch(fetchCat())
+      dispatch(adoptCatSuccess(res));
+    })
+    .then(() => {
+      dispatch(fetchCat());
     })
     .catch(err => {
       dispatch(fetchCatError(err))

@@ -34,8 +34,7 @@ export const fetchDog = () => (dispatch) => {
     })
     .then((res) => res.json())
     .then ( res => {
-      dispatch(fetchDogSuccess(res))
-      dispatch(fetchDog())
+      dispatch(fetchDogSuccess(res));
     })
     .catch(err => {
       dispatch(fetchDogError(err))
@@ -56,6 +55,9 @@ export const adoptDog = () => (dispatch) => {
     .then ( res => {
       console.log("Dog response is: ", res)
       dispatch(adoptDogSuccess(res))
+    })
+    .then(() => {
+      dispatch(fetchDog())
     })
     .catch(err => {
       dispatch(fetchDogError(err))
