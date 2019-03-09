@@ -30,7 +30,12 @@ export const fetchCat = () => (dispatch) => {
     fetch(`${API_BASE_URL}api/cats`, {
       method: 'GET',
     })
-    .then((res) => res.json())
+    .then((res) => {
+      if (!res.ok) {
+        return Promise.reject(res.statusText);
+      }
+      res.json()
+    })
     .then (res => {
       return dispatch(fetchCatSuccess(res))
     })
@@ -45,15 +50,16 @@ export const adoptCat = () => (dispatch) => {
   return(
     fetch(`${API_BASE_URL}api/cats`, {
       method: 'DELETE',
+      headers: { 'Content-Type': 'application/json' }
     })
     .then((res) => res.json())
     .then (res => {
-      console.log("Catresponse is: ", res)
+      console.log("Cat response is: ", res)
       return dispatch(adoptCatSuccess(res));
     })
-    // .then(() => {
-    //  return dispatch(fetchCat());
-    // })
+     .then(() => {
+      return dispatch(fetchCat());
+     })
     .catch(err => {
       return dispatch(fetchCatError(err))
     })

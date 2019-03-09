@@ -1,4 +1,3 @@
-import { API_BASE_URL } from '../config';
 
 export const FETCH_DOG_SUCCESS = 'FETCH_DOG_SUCCESS';
 export const fetchDogSuccess = (dog) => ({
@@ -26,7 +25,7 @@ export const fetchDogRequest= () => ({
 export const fetchDog = () => (dispatch) => {
   dispatch(fetchDogRequest())
   return(
-    fetch(`${API_BASE_URL}api/dogs`, {
+    fetch('https://petful-backend.herokuapp.com/api/dogs', {
       method: 'GET',
       headers: {
         'content-Type': 'application/json'
@@ -34,7 +33,7 @@ export const fetchDog = () => (dispatch) => {
     })
     .then((res) => res.json())
     .then ( res => {
-      return dispatch(fetchDogSuccess(res));
+      return dispatch(fetchDogSuccess(res))
     })
     .catch(err => {
       return dispatch(fetchDogError(err))
@@ -45,22 +44,24 @@ export const fetchDog = () => (dispatch) => {
 export const adoptDog = () => (dispatch) => {
   dispatch(fetchDogRequest())
   return(
-    fetch(`${API_BASE_URL}api/dogs`, {
+    fetch('http://petful-backend.herokuapp.com/api/dogs', {
       method: 'DELETE',
       headers: {
-        'content-Type': 'application/json'
+        'content-Type': 'application/json',
+        headers: { 'Content-Type': 'application/json' }
       }
     })
-    .then((res) => res.json())
-    .then ( res => {
+    .then((res) => {
       console.log("Dog response is: ", res)
-      return dispatch(adoptDogSuccess(res))
+      return res.json()
     })
-    // .then(() => {
-    //   return dispatch(fetchDog())
-    // })
+    .then(  res => {
+      console.log("Dog response is: ", res)
+      dispatch(adoptDogSuccess(res))
+      fetchDog();
+      })
     .catch(err => {
-      return dispatch(fetchDogError(err))
+      dispatch(fetchDogError(err))
     })
   )
 }

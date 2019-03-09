@@ -25,20 +25,26 @@ class Dashboard extends Component {
 
   handleDogAdopt() {
     this.props.dispatch(adoptDog())
-      .then(() => this.props.dispatch(fetchDog()))
+  }
+
+  viewNextDog() {
+    console.log(this.props.dispatch(fetchDog()))
+  }
+
+  viewNextCat() {
+    this.props.dispatch(fetchCat())
   }
 
   handleCatAdopt() {
     this.props.dispatch(adoptCat())
-      .then(() => this.props.dispatch(fetchCat()))
   }
   
 
   render() {
     return (
       <div className="dashboard">
-        <Pet animal="cat" petToAdopt={this.props.catToAdopt} onAdoptPet={() => this.handleCatAdopt()}/>
-        <Pet animal="dog" petToAdopt={this.props.dogToAdopt} onAdoptPet={() => this.handleDogAdopt()}/>
+        <Pet animal="cat" petToAdopt={this.props.catToAdopt} fetchPet={() => this.viewNextCat()}onAdoptPet={() => this.handleCatAdopt()}/>
+        <Pet animal="dog" petToAdopt={this.props.dogToAdopt} fetchPet={() => this.viewNextDog()} onAdoptPet={() => this.handleDogAdopt()}/>
       </div>
     );
   }

@@ -22,6 +22,7 @@ function Pet(props) {
           <dd>{props.petToAdopt.story}</dd>
         </dl>
         <button className="adopt-btn" onClick={() => props.onAdoptPet()}>Adopt</button>
+        <button onClick={()=> props.fetchPet()} >Buggy View Next</button>
       </main>
     </section>
   )
