@@ -25,10 +25,12 @@ class Dashboard extends Component {
 
   handleDogAdopt() {
     this.props.dispatch(adoptDog())
+      .then(() => this.props.dispatch(fetchDog()))
   }
 
   handleCatAdopt() {
     this.props.dispatch(adoptCat())
+      .then(() => this.props.dispatch(fetchCat()))
   }
   
 
