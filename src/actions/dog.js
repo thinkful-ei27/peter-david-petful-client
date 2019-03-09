@@ -27,6 +27,9 @@ export const fetchDog = () => (dispatch) => {
   return(
     fetch('https://petful-backend.herokuapp.com/api/dogs', {
       method: 'GET',
+      headers: {
+        'content-Type': 'application/json'
+      }
     })
     .then((res) => res.json())
     .then ( res => {
@@ -44,6 +47,9 @@ export const adoptDog = () => (dispatch) => {
   return(
     fetch('https://petful-backend.herokuapp.com/api/dogs', {
       method: 'DELETE',
+      headers: {
+        'content-Type': 'application/json'
+      }
     })
     .then((res) => res.json())
     .then ( res => {
